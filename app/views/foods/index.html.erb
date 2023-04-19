@@ -1,0 +1,10 @@
+<h1>Food List</h1>
+
+<ul>
+  <% @foods.each do |food| %>
+    <li>
+    <%= link_to food.name, food %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Food", new_food_path if can? :create, Food %>
