@@ -31,6 +31,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def public_recipes
+    @recipes = Recipe.includes([:user]).where(public: true).order(created_at: :desc)
+  end
+
   private
 
   def recipe_params

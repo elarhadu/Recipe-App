@@ -1,0 +1,28 @@
+  <h1>PUBLIC RECIPES</h1>
+
+  <p><%= notice %></p>
+
+  <%= link_to "New recipe", new_recipe_path %>
+
+    <div>
+      <% @recipes.each do |recipe| %>
+      
+        <div>
+          <div>
+            <div>
+            <%= link_to recipe_path(recipe) do %>
+              <h3><%= recipe[:name] %></h3>
+              <h5><%= "By: #{recipe.user[:name]}" %></h5>
+            <%end%>
+            </div>
+            <% if can? :manage, recipe %>
+              <%= link_to "REMOVE", recipe, method: :delete %>
+            <% end %>
+          </div>
+          <div>
+            <p><%= "Total price: $#{total_price_recipe(recipe)}" %></p>
+            <p><%= "Number of ingredients: #{total_ingredients_recipe(recipe)}" %></p>
+          </div>    
+        </div>
+      <% end %>
+    </div>
