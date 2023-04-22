@@ -1,15 +1,28 @@
-<h1>New Food <h1>
+<div class="container mt-3">
+
+<h1 class="text-center">New Food <h1>
 
 <%= form_with model: @food do |food|  %>
-<div>
-<%= food.label :name  %> <br>
-<%= food.text_field :name  %> <br>
-<%= food.label :measurement_unit  %> <br>
-<%= food.text_field :measurement_unit %><br>
-<%= food.label :price  %> <br>
-<%= food.number_field :price%><br>
-<%= food.label :quantity  %> <br>
-<%= food.number_field :quantity%><br>
-<%= food.submit%>
+ <div class="field">
+    <%= food.label :name, style: "display: block" %>
+    <%= food.text_field :name %>
+  </div> 
+
+  <div class="field">
+    <%= food.label :measurement_unit, style: "display: block" %>
+    <%= food.text_field :measurement_unit %>
+  </div> 
+
+  <div class="field">
+    <%= food.label :price, style: "display: block" %>
+    <%= food.number_field :price %>
+  </div> 
+
+  <div class="field">
+    <%= food.label :quantity, style: "display: block" %>
+    <%= food.number_field :quantity %>
+  </div> 
+<%= food.submit class:"m-2"%>
+
 <%end%>
-</div>
+  </div>
