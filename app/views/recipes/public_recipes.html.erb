@@ -1,28 +1,33 @@
-  <h1>PUBLIC RECIPES</h1>
+<h1>PUBLIC RECIPES</h1>
 
-  <p><%= notice %></p>
+<p><%= notice %></p>
 
-  <%= link_to "New recipe", new_recipe_path %>
+<%= link_to "New recipe", new_recipe_path, class: "btn btn-primary mb-3" %>
 
-    <div>
-      <% @recipes.each do |recipe| %>
-      
-        <div>
-          <div>
-            <div>
-            <%= link_to recipe_path(recipe) do %>
-              <h3><%= recipe[:name] %></h3>
-              <h5><%= "By: #{recipe.user[:name]}" %></h5>
-            <%end%>
-            </div>
-            <% if can? :manage, recipe %>
-              <%= link_to "REMOVE", recipe, method: :delete %>
-            <% end %>
-          </div>
-          <div>
-            <p><%= "Total price: $#{total_price_recipe(recipe)}" %></p>
-            <p><%= "Number of ingredients: #{total_ingredients_recipe(recipe)}" %></p>
-          </div>    
-        </div>
-      <% end %>
+<div class="container">
+  <% @recipes.each do |recipe| %>
+    <div class="row border border-dark border-2 p-2 mb-3">
+      <div class="d-flex flex-column col-4">
+        <h3>
+          <%= link_to recipe_path(recipe), class: "text-decoration-none text-dark" do %>
+            <%= recipe.name %>
+          <% end %>
+        </h3>
+        <h5>By: <%= recipe.user.name %></h5>
+        <% if can? :manage, recipe %>
+          <%= button_to "Remove", recipe, class: "btn btn-link m-0 p-0", method: :delete %>
+        <% end %>
+      </div>
+      <div class="d-flex flex-column col-8">
+        <p>
+          <strong>Total price:</strong>
+          $<%= total_price_recipe(recipe) %>
+        </p>
+        <p>
+          <strong>Number of ingredients:</strong>
+          <%= total_ingredients_recipe(recipe) %>
+        </p>
+      </div>
     </div>
+  <% end %>
+</div>

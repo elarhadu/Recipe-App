@@ -1,21 +1,22 @@
  <div class="container pb-2">
     <h2 class="text-center">
-       Shopping List
+     The Shopping List
     </h2>
 
-    <div >
-       <div>
-           Amount of food items to buy: <%= @ingredients.length %>
+    <div class="d-flex flex-row ">
+       <div class="flex-grow-1">
+           The amount of food items to buy: <%= @ingredients.length %>
        </div>
-       <div >
-           Total value of food needed: $<%= @total_price %>
+       <div class="flex-grow-1">
+           The total value of food needed: $<%= @total_price %>
        </div>
     </div>
  </div>
- <div >
-    <table >
+
+ <div class="container">
+    <table class="table table-bordered table-striped" >
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>Food</th>
           <th>Quantity</th>
           <th>Price</th>
