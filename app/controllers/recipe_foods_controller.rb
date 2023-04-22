@@ -3,18 +3,16 @@ class RecipeFoodsController < ApplicationController
 
   def index
     @recipe = Recipe.find_by(id: params[:recipe_id])
-    @recipe_foods = RecipeFood.all
+    @recipe_foods = RecipeFood.includes(:food).all
   end
 
   def show
     @recipe = Recipe.find_by(id: params[:recipe_id])
-    @recipe_foods = RecipeFood.where(recipe: @recipe)
+    @recipe_foods = RecipeFood.includes(:food).where(recipe: @recipe)
   end
 
   def new
-    p "PARAMS #{params}"
     @recipe = Recipe.find_by(id: params[:recipe_id])
-
     @recipe_food = RecipeFood.new
   end
 
