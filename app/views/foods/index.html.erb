@@ -1,10 +1,34 @@
-<h1>Food List</h1>
+<div class="container mb-3 p-2">
+  <div class="d-flex align-items-end flex-column p-2">
+<%= link_to 'Add Food', new_food_path, class: "btn btn-secondary"%>
+</div>
 
-<ul>
+
+<table class="table table-striped table-bordered">
+
+<thead>
+    <tr class="text-center">
+      <th scope="col">Name</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">Price</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+
+<tbody>
   <% @foods.each do |food| %>
-    <li>
-    <%= link_to food.name, food %>
-    </li>
+      <tr id= <%= food.id %> class="p-2 text-center">
+  <td><%=food.name %></td>
+  <td><%=food.measurement_unit %></td>
+  <td><%="$#{food.price}" %></td>
+  <td>
+    <%= button_to "Delete", food_path(food.id), method: :delete, :class => "remove-button"%>
+  </td>
+</tr>
   <% end %>
-</ul>
-<%= link_to "New Food", new_food_path if can? :create, Food %>
+
+</tbody>
+
+
+</table>
+</div>
