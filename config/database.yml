@@ -55,3 +55,4 @@ production:
   username: postgres
   password: <%= ENV['1234'] %>
   port: 5432
+  url: <%= ENV["DATABASE_URL"] %>
