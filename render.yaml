@@ -15,10 +15,10 @@ services:
           name: postgres
           property: connectionString
       - group: redis
-          
-groups:
-  - name: redis
-    type: redis
-    name: redis
-    plan: free
-    maxmemoryPolicy: noeviction
+
+    groups:
+      - name: redis
+        type: redis
+        name: redis
+        plan: free
+        maxmemoryPolicy: noeviction
