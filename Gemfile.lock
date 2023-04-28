@@ -256,7 +256,7 @@ DEPENDENCIES
   jbuilder
   letter_opener
   pg (~> 1.1)
-  puma (~> 5.0)
+  puma
   rails (~> 7.0.4, >= 7.0.4.3)
   rspec-rails
   selenium-webdriver
