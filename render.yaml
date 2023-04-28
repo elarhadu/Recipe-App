@@ -14,7 +14,11 @@ services:
         fromDatabase:
           name: postgres
           property: connectionString
-      - type: redis
-        name: redis
-        plan: free
-        maxmemoryPolicy: noeviction
+      - group: redis
+          
+groups:
+  - name: redis
+    type: redis
+    name: redis
+    plan: free
+    maxmemoryPolicy: noeviction
