@@ -1,6 +1,5 @@
 databases:
   - name: postgres
-    ipAllow: []
 
 services:
   - type: web
@@ -17,6 +16,5 @@ services:
           property: connectionString
       - type: redis
         name: redis
-        ipAllow: []
         plan: free
         maxmemoryPolicy: noeviction
